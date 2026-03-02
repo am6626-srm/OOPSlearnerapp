@@ -1,43 +1,31 @@
-public class OOPSlearnerapp {
+/**
+ * OOPSBannerApp UC5 - Render OOPS as Banner using Inline Array Initialization
+ * @author Developer
+ * @version 5.0
+ */
 
+public class OOPSlearnerapp{
+
+    // Main method to run the banner display
     public static void main(String[] args) {
-        printOOPS();
-    }
 
-    private static void printOOPS() {
+        // Define String array variable to hold the OOPS banner lines
+        // Each line represents a row in the banner for the letters O, O, P, S
 
-        String star = "*";
-        String space = " ";
+        String[] lines = {
 
-        String[] banner = {
+    String.join("   ", " ***** ", " ***** ", " ****** ", " ****** "),
+    String.join("   ", "*     *", "*     *", "*     *", "*      "),
+    String.join("   ", "*     *", "*     *", "*     *", "*      "),
+    String.join("   ", "*     *", "*     *", " ****** ", " ***** "),
+    String.join("   ", "*     *", "*     *", "*       ", "      *"),
+    String.join("   ", "*     *", "*     *", "*       ", "      *"),
+    String.join("   ", " ***** ", " ***** ", "*       ", " ****** ")
 
-            String.join("", 
-                    star, star, star, star, star, space,
-                    star, star, star, star, star, space,
-                    star, star, star, star, star),
+};
 
-            String.join("", 
-                    star, space, space, space, star, space,
-                    star, space, space, space, star, space,
-                    star, space, space, space, star),
-
-            String.join("", 
-                    star, star, star, star, star, space,
-                    star, star, star, star, star, space,
-                    star, star, star, star, star),
-
-            String.join("", 
-                    star, space, space, space, star, space,
-                    star, space, space, space, star, space,
-                    star, space, space, space, star),
-
-            String.join("", 
-                    star, star, star, star, star, space,
-                    star, star, star, star, star, space,
-                    star, star, star, star, star)
-        };
-
-        for (String line : banner) {
+        // Use a loop to print each line of the banner
+        for (String line : lines) {
             System.out.println(line);
         }
     }
