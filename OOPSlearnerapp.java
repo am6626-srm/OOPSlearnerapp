@@ -9,45 +9,36 @@ public class OOPSlearnerapp {
         String star = "*";
         String space = " ";
 
-        String line1 = String.join("",
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star
-        );
+        String[] banner = {
 
-        String line2 = String.join("",
-                star, space, space, space, star, space,
-                star, space, space, space, star, space,
-                star, space, space, space, space, space,
-                star, space, space, space, star
-        );
+            String.join("", 
+                    star, star, star, star, star, space,
+                    star, star, star, star, star, space,
+                    star, star, star, star, star),
 
-        String line3 = String.join("",
-                star, space, space, space, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, space, space, space, star
-        );
+            String.join("", 
+                    star, space, space, space, star, space,
+                    star, space, space, space, star, space,
+                    star, space, space, space, star),
 
-        String line4 = String.join("",
-                star, space, space, space, star, space,
-                star, space, space, space, star, space,
-                space, space, space, space, star, space,
-                star, space, space, space, star
-        );
+            String.join("", 
+                    star, star, star, star, star, space,
+                    star, star, star, star, star, space,
+                    star, star, star, star, star),
 
-        String line5 = String.join("",
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star
-        );
+            String.join("", 
+                    star, space, space, space, star, space,
+                    star, space, space, space, star, space,
+                    star, space, space, space, star),
 
-        System.out.println(line1);
-        System.out.println(line2);
-        System.out.println(line3);
-        System.out.println(line4);
-        System.out.println(line5);
+            String.join("", 
+                    star, star, star, star, star, space,
+                    star, star, star, star, star, space,
+                    star, star, star, star, star)
+        };
+
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
