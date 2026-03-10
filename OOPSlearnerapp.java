@@ -1,53 +1,125 @@
 public class OOPSlearnerapp {
 
-    public static void main(String[] args) {
-        printOOPS();
+    /**
+     * CharacterPatternMap – Inner class for storing character-to-pattern mappings
+     */
+    static class CharacterPatternMap {
+
+        private Character character;
+        private String[] pattern;
+
+        // Constructor
+        public CharacterPatternMap(Character character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        // Getter for character
+        public Character getCharacter() {
+            return character;
+        }
+
+        // Getter for pattern
+        public String[] getPattern() {
+            return pattern;
+        }
     }
 
-    private static void printOOPS() {
+    // Create pattern mappings
+    public static CharacterPatternMap[] createCharacterPatternMaps() {
 
-        String star = "*";
-        String space = " ";
+        String[] O = {
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        };
 
-        String line1 = String.join("",
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star
-        );
+        String[] P = {
+                "**** ",
+                "*   *",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    ",
+                "*    "
+        };
 
-        String line2 = String.join("",
-                star, space, space, space, star, space,
-                star, space, space, space, star, space,
-                star, space, space, space, space, space,
-                star, space, space, space, star
-        );
+        String[] S = {
+                " ****",
+                "*    ",
+                "*    ",
+                " *** ",
+                "    *",
+                "    *",
+                "**** "
+        };
 
-        String line3 = String.join("",
-                star, space, space, space, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, space, space, space, star
-        );
+        String[] space = {
+                "     ",
+                "     ",
+                "     ",
+                "     ",
+                "     ",
+                "     ",
+                "     "
+        };
 
-        String line4 = String.join("",
-                star, space, space, space, star, space,
-                star, space, space, space, star, space,
-                space, space, space, space, star, space,
-                star, space, space, space, star
-        );
+        CharacterPatternMap[] maps = new CharacterPatternMap[4];
 
-        String line5 = String.join("",
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star, space,
-                star, star, star, star, star
-        );
+        maps[0] = new CharacterPatternMap('O', O);
+        maps[1] = new CharacterPatternMap('P', P);
+        maps[2] = new CharacterPatternMap('S', S);
+        maps[3] = new CharacterPatternMap(' ', space);
 
-        System.out.println(line1);
-        System.out.println(line2);
-        System.out.println(line3);
-        System.out.println(line4);
-        System.out.println(line5);
+        return maps;
+    }
+
+    // Get pattern for character
+    public static String[] getCharacterPattern(char ch, CharacterPatternMap[] maps) {
+
+        for (CharacterPatternMap map : maps) {
+            if (map.getCharacter() == ch) {
+                return map.getPattern();
+            }
+        }
+
+        // return space pattern if character not found
+        for (CharacterPatternMap map : maps) {
+            if (map.getCharacter() == ' ') {
+                return map.getPattern();
+            }
+        }
+
+        return null;
+    }
+
+    // Print banner message
+    public static void printMessage(String message, CharacterPatternMap[] maps) {
+
+        for (int row = 0; row < 7; row++) {
+
+            StringBuilder line = new StringBuilder();
+
+            for (char ch : message.toCharArray()) {
+                String[] pattern = getCharacterPattern(ch, maps);
+                line.append(pattern[row]).append("  ");
+            }
+
+            System.out.println(line);
+        }
+    }
+
+    // Main Method
+    public static void main(String[] args) {
+
+        CharacterPatternMap[] charMaps = createCharacterPatternMaps();
+
+        String message = "OOPS";
+
+        printMessage(message, charMaps);
     }
 }
